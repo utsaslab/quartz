@@ -37,6 +37,8 @@ microarch_ID_t known_cpus[] =
         {.family = 0x06, .model = 0x45, .microarch = Haswell},
         {.family = 0x06, .model = 0x46, .microarch = Haswell},
 
+        {.family = 0x06, .model = 0x55, .microarch = Skylake},
+
         // must be the last element
         {.family = 0x0, .model = 0x0, .microarch = Invalid}};
 
@@ -49,6 +51,8 @@ char *microarch_strings[] =
         "Ivy Bridge",
         "Ivy Bridge Xeon",
         "Haswell",
-        "Haswell Xeon"};
+        "Haswell Xeon",
+        "Skylake",
+        "Skylake Xeon"};
 
 #endif /* __KNOWN_CPUS_H */

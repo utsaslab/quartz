@@ -39,7 +39,9 @@ typedef enum {
     IvyBridge,
     IvyBridgeXeon,
     Haswell,
-    HaswellXeon
+    HaswellXeon,
+    Skylake,
+    SkylakeXeon
 } microarch_t;
 
 typedef struct

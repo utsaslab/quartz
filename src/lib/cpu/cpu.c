@@ -192,7 +192,6 @@ cpu_model_t *cpu_model()
         return NULL;
 
     get_family_model(&family, &model);
-
     int isXeon = is_Xeon();
 
     for (i = 0; known_cpus[i].microarch != Invalid; i++)
@@ -211,6 +210,9 @@ cpu_model_t *cpu_model()
                 break;
             case Haswell:
                 cpu_model = &cpu_model_intel_xeon_ex_v3;
+                break;
+            case Skylake:
+                cpu_model = &cpu_model_intel_xeon_ex_v4;
                 break;
             default:
                 return NULL;

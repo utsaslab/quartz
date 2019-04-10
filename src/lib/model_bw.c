@@ -112,7 +112,6 @@ static int load_model(const char* path, const char* prefix, bw_model_t* bw_model
     int x;
     double y;
     int found_points;
-
     fp = fopen(path, "r");
     if (fp == NULL) {
         return E_ERROR;

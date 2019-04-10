@@ -110,3 +110,14 @@ cpu_model_t cpu_model_intel_xeon_ex_v3 = {
     .set_throttle_register = intel_xeon_ex_set_throttle_register,
     .get_throttle_register = intel_xeon_ex_get_throttle_register
 };
+
+cpu_model_t cpu_model_intel_xeon_ex_v4 = {
+    .microarch = SkylakeXeon,
+#ifdef PAPI_SUPPORT
+    .pmc_events = {haswell_native_events, haswell_read_stall_events_local, haswell_read_stall_events_remote},
+#else
+    .pmc_events = PMC_EVENTS_PTR(haswell),
+#endif
+    .set_throttle_register = intel_xeon_ex_set_throttle_register,
+    .get_throttle_register = intel_xeon_ex_get_throttle_register
+};

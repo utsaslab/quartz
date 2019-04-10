@@ -2,6 +2,20 @@
 Quartz: A DRAM-based performance emulator for NVM
 ----------------------
 
+Instructions:
+1. Install deps: sudo scripts/install.sh 
+2. Build:
+```
+     mkdir build
+     cd build
+     cmake ..
+     make clean all
+```
+3. Load kernel: sudo scripts/setupdev.sh load
+4. Run code prefixed with scripts/runenv.sh
+
+For detailed instructions, read below.
+
 Quartz leverages features available in commodity hardware to emulate
 different latency and bandwidth characteristics of future
 byte-addressable NVM technologies.

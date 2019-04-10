@@ -97,8 +97,8 @@ int get_mc_pci_bus_list(pci_regs_t *bus_id_list[], int max_list_size, int* dev_c
     }
 
     for (dev_count=0; fgets(buf, sizeof(buf)-1, fp) != NULL; ) {
-        if (strstr(buf, "Thermal Control")) {
-            if (sscanf(buf, "%x:%x.%x %s", &bus_id, &dev_id, &funct, dontcare) == 4) {
+        if (strstr(buf, "2042") || strstr(buf, "2046") || strstr(buf, "204a")) {
+            if (sscanf(buf, "0000:%x:%x.%x %s", &bus_id, &dev_id, &funct, dontcare) == 4) {
                 if (bus_id != last_bus_id) {
                     ++dev_count;
                     last_bus_id = bus_id;
@@ -146,7 +146,6 @@ int discover_mc_pci_topology(cpu_model_t* cpu_model, physical_node_t* physical_n
     uint16_t throttle_reg_val;
 
     get_mc_pci_bus_list(regs_addr, MAX_NUM_MC_PCI_BUS, &dev_count);
-
     if (dev_count < num_physical_nodes) {
         // TODO: application is terminated on error only if in DEBUG mode
         DBG_LOG(WARNING, "The number of physical nodes is greater than the number of memory-controller pci buses.\n");
